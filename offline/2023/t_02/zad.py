@@ -1,3 +1,5 @@
+from zad2testy import runtests
+
 def heapify(array, i, n):
     left = 2 * i + 1
     right = 2 * i + 2
@@ -34,3 +36,6 @@ def build_heap(array):
 
 def snow(S):
     return heap_sort(S)
+
+
+runtests( snow, all_tests = False )

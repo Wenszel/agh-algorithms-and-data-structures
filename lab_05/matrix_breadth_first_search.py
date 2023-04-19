@@ -1,8 +1,7 @@
-from collections import deque
 from adjacency_matrix_representation import Graph
 def bfs(graph, start_vertex):
     n = len(graph)
-    queue = deque()
+    queue = list()
 
     distance = [-1 for _ in range(n)]
     parent = [None for _ in range(n)]
@@ -14,7 +13,7 @@ def bfs(graph, start_vertex):
     queue.append(start_vertex)
 
     while len(queue) != 0:
-        visiting = queue.pop()
+        visiting = queue.pop(0)
         for i in range(n):
             if graph[visiting][i] and not visited[i]:
                 queue.append(i)

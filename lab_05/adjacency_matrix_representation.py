@@ -1,7 +1,8 @@
 class Graph:
-    def __init__(self, v, e):
+    def __init__(self, v, e, directed=False):
         self.v = v
         self.e = e
+        self.directed = directed
         self.m = self.create_adjacency_matrix()
 
     def create_adjacency_matrix(self):
@@ -9,7 +10,8 @@ class Graph:
         matrix = [[False for _ in range(n)] for _ in range(n)]
         for edge in self.e:
             matrix[edge[0]][edge[1]] = True
-            matrix[edge[1]][edge[0]] = True
+            if not self.directed:
+                matrix[edge[1]][edge[0]] = True
         return matrix
 
     def print_matrix(self):

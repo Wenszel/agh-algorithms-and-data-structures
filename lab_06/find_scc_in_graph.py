@@ -44,10 +44,20 @@ def dfs(g, times):
     return dags
 
 
-edges = [(0, 1), (1, 2), (2, 0), (2, 3), (3, 4), (4, 5), (5, 3), (3, 6), (6, 5), (9, 5), (10, 7),
-         (7, 8), (9, 10), (10, 3), (8, 9), (2, 8)]
-vertices = [i for i in range(11)]
-graph = adjacency_list_representation.Graph(vertices, edges, True)
-priority = find_times(graph.l)
-reversed_graph = adjacency_list_representation.Graph(vertices, [(v, u) for u, v in edges], True)
-print(dfs(reversed_graph.l, priority))
+def find_scc_in_graph(g, edges):
+    priority = find_times(g.l)
+    reversed_graph = adjacency_list_representation.Graph([i for i in range(len(g.l))], [(v, u) for u, v in edges], True)
+    return dfs(reversed_graph.l, priority)
+
+
+def run_find_scc_in_graph():
+    edges = [(0, 1), (1, 2), (2, 0), (2, 3), (3, 4), (4, 5), (5, 3), (3, 6), (6, 5), (9, 5), (10, 7), (7, 8), (9, 10),
+             (10, 3), (8, 9), (2, 8)]
+    vertices = [i for i in range(11)]
+    graph = adjacency_list_representation.Graph(vertices, edges, True)
+    priority = find_times(graph.l)
+    reversed_graph = adjacency_list_representation.Graph(vertices, [(v, u) for u, v in edges], True)
+    print(dfs(reversed_graph.l, priority))
+
+
+# run_find_scc_in_graph()

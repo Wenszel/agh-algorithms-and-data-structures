@@ -4,7 +4,7 @@ from find_scc_in_graph import find_scc_in_graph
 
 
 # A vertex v in a directed graph is called
-# a good start if every other vertex can be
+# a mother vertex if every other vertex can be
 # reached by a directed path starting from v.
 # Give an algorithm that, for a given graph,
 # determines whether G has a good start; a list of neighbourhoods

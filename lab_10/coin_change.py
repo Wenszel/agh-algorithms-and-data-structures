@@ -3,7 +3,7 @@ def coin_change(system, value):
     counts[0] = 0
     for i in range(1, value + 1):
         for coin in system:
-            if coin <= i and counts[i - coin] != -1:
+            if i - coin >= 0:
                 counts[i] = min(counts[i - coin] + 1, counts[i])
     return counts[value]
 
